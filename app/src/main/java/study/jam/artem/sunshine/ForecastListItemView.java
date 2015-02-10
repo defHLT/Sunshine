@@ -25,7 +25,7 @@ public class ForecastListItemView extends RelativeLayout {
     private View placeHolderBar;
     private TextView tvDay;
 
-    public ForecastListItemView(Context context, int minLow, int maxHigh) {
+    public ForecastListItemView(Context context, float minLow, float maxHigh) {
         super(context);
         init(context);
         this.minLow = minLow;
@@ -55,13 +55,13 @@ public class ForecastListItemView extends RelativeLayout {
     }
 
     public void showData(Forecast forecast) {
-        tvDate.setText(forecast.getDate().replaceAll(" \\d{4}", "")); // Remove year from date
-        tvDay.setText(forecast.getDay());
-        tvTempLo.setText(String.valueOf(forecast.getLow()) + DEGREE_CELCIUS);
-        tvTempHi.setText(String.valueOf(forecast.getHigh()) + DEGREE_CELCIUS);
+//        tvDate.setText(forecast.getDate().replaceAll(" \\d{4}", "")); // Remove year from date
+        tvDay.setText(String.valueOf(forecast.getDt()));
+        double itemLo = forecast.getTemp().getMin();
+        double itemHi = forecast.getTemp().getMax();
+        tvTempLo.setText(String.valueOf(itemLo) + DEGREE_CELCIUS);
+        tvTempHi.setText(String.valueOf(itemHi) + DEGREE_CELCIUS);
 
-        double itemLo = forecast.getLow();
-        double itemHi = forecast.getHigh();
 
         float barWeight = (float) ((itemHi - itemLo) / (maxHigh - minLow ));
         float tempLoWeight = (float) ((itemLo - minLow) / (maxHigh - minLow));

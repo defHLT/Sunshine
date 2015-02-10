@@ -6,50 +6,22 @@ import io.realm.RealmObject;
  * Created by ice on 2/9/15.
  */
 public class Forecast extends RealmObject {
-    private int high;
-    private int low;
-    private String date;
-    private String code;
-    private String day;
+    private int dt;
+    private Temp temp;
 
-
-    public int getHigh() {
-        return high;
+    public Temp getTemp() {
+        return temp;
     }
 
-    public void setHigh(int high) {
-        this.high = high;
+    public void setTemp(Temp temp) {
+        this.temp = temp;
     }
 
-    public int getLow() {
-        return low;
+    public int getDt() {
+        return dt;
     }
 
-    public void setLow(int low) {
-        this.low = low;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setDt(int dt) {
+        this.dt = dt;
     }
 }

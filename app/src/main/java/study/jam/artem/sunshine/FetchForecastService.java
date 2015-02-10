@@ -28,8 +28,7 @@ import study.jam.artem.sunshine.data.Forecast;
  */
 public class FetchForecastService extends IntentService {
     public static final String ACTION_FETCH_FORECAST = "study.jam.artem.sunshine.action.FETCH_FORECAST";
-    private static final String url =
-            "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Dnipropetrovsk%2C%20Ukraine%22)%20and%20u%20%3D%20'c'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+    private static final String url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Dnipropetrovsk,%20Ukraine&mode=json&units=metric&cnt=16&lang=en";
     private final String LOG_TAG = this.getClass().getSimpleName();
 
     public FetchForecastService() {
@@ -55,11 +54,8 @@ public class FetchForecastService extends IntentService {
             public void onResponse(JSONObject response) {
                 Log.d(LOG_TAG, "got response");
                 try {
-                    final JSONArray jForecast = response.getJSONObject("query")
-                            .getJSONObject("results")
-                            .getJSONObject("channel")
-                            .getJSONObject("item")
-                            .getJSONArray("forecast");
+                    final JSONArray jForecast = response
+                            .getJSONArray("list");
                     Realm realm = Realm.getInstance(getBaseContext());
 
                     realm.executeTransaction(new Realm.Transaction() {
