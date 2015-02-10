@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="temp_text_light_color">#f0f0f0</color>
+    <color name="date_text_color">#212121</color>
+    <color name="day_text_color">#606060</color>
+</resources>

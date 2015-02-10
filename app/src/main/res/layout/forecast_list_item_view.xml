@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeightSmall"
+    android:id="@+id/linear0">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/date_box"
+        android:paddingEnd="5dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textStyle="normal"
+            android:id="@+id/tv_date"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/date_text_color"
+            android:textSize="@dimen/abc_text_size_small_material"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="left"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="@dimen/abc_text_size_small_material"
+            android:id="@+id/tv_day"
+            android:layout_weight="1"
+            android:textColor="@color/day_text_color"
+            />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/date_box"
+        >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/left_praceholder"
+            />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/temperature_bar">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/iv_temp_bar"
+                android:background="@drawable/round_bar"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:backgroundTint="@color/accent"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/iv_temp_bar"
+                android:layout_centerVertical="true"
+                android:id="@+id/tv_temp_lo"
+                android:paddingLeft="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/temp_text_light_color"
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/iv_temp_bar"
+                android:textStyle="bold"
+                android:id="@+id/tv_temp_hi"
+                android:paddingRight="15dp"
+                android:textColor="@color/temp_text_light_color"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/right_placeholder"
+            />
+    </LinearLayout>
+</RelativeLayout>
