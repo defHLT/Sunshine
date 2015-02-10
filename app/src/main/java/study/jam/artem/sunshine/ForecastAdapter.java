@@ -12,8 +12,8 @@ import study.jam.artem.sunshine.data.Forecast;
 public class ForecastAdapter extends RealmBaseAdapter<Forecast> implements ListAdapter {
 
     private final String LOG_TAG = this.getClass().getSimpleName();
-    private int maxHight;
-    private int minLow;
+    private Integer maxHight;
+    private Integer minLow;
 
     public ForecastAdapter(Context context, RealmResults<Forecast> realmResults, boolean automaticUpdate) {
         super(context, realmResults, automaticUpdate);
@@ -26,7 +26,7 @@ public class ForecastAdapter extends RealmBaseAdapter<Forecast> implements ListA
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (minLow == 0 || maxHight == 0) {
+        if (null == minLow || null == maxHight) {
             minLow = realmResults.min("low").intValue();
             maxHight = realmResults.max("high").intValue();
         }
